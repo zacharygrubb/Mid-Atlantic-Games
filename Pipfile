@@ -7,6 +7,10 @@ name = "pypi"
 requests = "*"
 django = "==3.2.3"
 django-registration-redux = "*"
+django-bootstrap4 = "*"
+django-bootstrap-themes = "*"
+six = "*"
+django-compressor = "*"
 
 [dev-packages]
 
