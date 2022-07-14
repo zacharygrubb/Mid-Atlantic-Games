@@ -25,7 +25,7 @@
   {% endblock %}
 {% endblock %}
 
- 
+
 
 {% block bootstrap4_content %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -65,21 +65,26 @@
         </div>
     </nav>
 
-    <div class="container-fluid has-bg-img">
-      <img src="{% static 'base/img/banner.jpg' %}" class="bg" />
+    <div>
+        <div class="bg" style="background-image: url({% static 'base/img/banner.jpg' %});">
+            <div class="bg-text">
+                <h3>Welcome to our store!</h3>
+                <p>We are currently building our first game,</p>
+                <p>please check in here and there!</p>
+            </div>
+        </div>
     </div>
     <div class="row">
       {% block body %}
       <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
-        <div style="text-align:center"><h3>Welcome to our store!</h3></div>
         {% for game in games %}
         <div class="storefront_game_display">
         <a href="{% url 'game_details' game.id %}">
           <img src="{{ MEDIA_URL }}{{ game.cover_image }}">
           <span class="storefront_game_title">{{ game.title }}</span>
           <span class="storefront_game_genre">{{ game.genre }}</span>
-          </a>
-          {% if request.user.is_authenticated %}
+        </a>
+        {% if request.user.is_authenticated %}
           <span class="storefront_add_to_cart">
             <a href="{% url 'add_to_cart' game.id %}">[Add To Cart]</a>
           </span>

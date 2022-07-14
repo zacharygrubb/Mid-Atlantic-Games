@@ -17,10 +17,22 @@ a:hover {
 /* Nav bar styles */
 
 
-img.bg {
+.bg {
   height: 500px;
   width: 100%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.bg-text {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20%;
 }
 
 .footer {

@@ -11,6 +11,7 @@ django-bootstrap4 = "*"
 django-bootstrap-themes = "*"
 six = "*"
 django-compressor = "*"
+pillow = "*"
 
 [dev-packages]
 
