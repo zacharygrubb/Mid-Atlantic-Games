@@ -1,6 +1,11 @@
-from django.shortcuts import render, redirect
-from .models import Game, Cart, Review, GameOrder
+import paypalrestsdk
 from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.urls import reverse
+from django.utils import timezone
+
+from .models import Game, Cart, GameOrder
 
 
 def index(request):
@@ -63,7 +68,7 @@ def cart(request):
         total = 0
         count = 0
         for order in orders:
-            total = (order.game.price * order.quantity)
+            total += (order.game.price * order.quantity)
             count = order.quantity
         context = {
             'cart': orders,
@@ -71,5 +76,111 @@ def cart(request):
             'count': count,
         }
         return render(request, 'store/cart.html', context)
+    else:
+        return redirect('index')
+
+
+def checkout(request, processor):
+    if request.user.is_authenticated:
+        cart = Cart.objects.filter(user=request.user.id, active=True)[0]
+        orders = GameOrder.objects.filter(cart=cart)
+        if processor == "paypal":
+            redirect_url = checkout_paypal(request, cart, orders)
+            return redirect(redirect_url)
+    else:
+        return redirect('index')
+
+
+def checkout_paypal(request, cart, orders):
+    if request.user.is_authenticated:
+        items = []
+        total = 0
+        for order in orders:
+            total += (order.game.price * order.quantity)
+            game = order.game
+            item = {
+                'name': game.title,
+                'sku': game.id,
+                'price': str(game.price),
+                'currency': 'USD',
+                'quantity': order.quantity
+            }
+            items.append(item)
+
+        paypalrestsdk.configure({
+          "mode": "sandbox",
+          "client_id": "ASWleD1-IIvUryI9HAQwqqlPne9lLod1ic5uPrqago8ERi7XyM0qru4AImB6xXWewechCO0mrze5ZX2V",
+          "client_secret": "EPt-ySxXb0dKsxdpx9cgitaSnYS2YJtVJmaS_rV3rP8RY_WRKq2qOLSw2AnjHo-oIISjnEXnvA_lfAdS" })
+        payment = paypalrestsdk.Payment({
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal"},
+            "redirect_urls": {
+                "return_url": "http://localhost:8000/store/process/paypal",
+                "cancel_url": "http://localhost:8000/store"},
+            "transactions": [{
+                "item_list": {
+                    "items": items},
+                "amount": {
+                    "total": str(total),
+                    "currency": "USD"},
+                "description": "Mid Atlantic Games order."}]})
+        if payment.create():
+            cart.payment_id = payment.id
+            cart.save()
+            for link in payment.links:
+                if link.method == "REDIRECT":
+                    redirect_url = str(link.href)
+                    return redirect_url
+        else:
+            return reverse('order_error')
+    else:
+        return redirect('index')
+
+
+def order_error(request):
+    if request.user.is_authenticated:
+        return render(request, 'store/order_error.html')
+    else:
+        return redirect('index')
+
+
+def process_order(request, processor):
+    if request.user.is_authenticated:
+        if processor == "paypal":
+            payment_id = request.GET.get('paymentId')
+            cart = Cart.objects.filter(payment_id=payment_id)[0]
+            orders = GameOrder.objects.filter(cart=cart)
+            total = 0
+            for order in orders:
+                total += (order.game.price * order.quantity)
+            context = {
+                'cart': orders,
+                'total': total,
+            }
+            return render(request, 'store/process_order.html', context)
+        elif processor == "stripe":
+            return JsonResponse({'redirect_url': reverse('complete_order', args=['stripe'])})
+        else:
+            return redirect('index')
+
+
+def complete_order(request, processor):
+    if request.user.is_authenticated:
+        cart = Cart.objects.get(user=request.user.id, active=True)
+        if processor == 'paypal':
+            payment = paypalrestsdk.Payment.find(cart.payment_id)
+            if payment.execute({"payer_id": payment.payer.payer_info.payer_id}):
+                message = "Success! Your order has been completed, and is being processed. Payment ID: %s" % (payment.id)
+                cart.active = False
+                cart.order_date = timezone.now()
+                cart.payment_type = "Paypal"
+                cart.save()
+            else:
+                message = "There was a problem with the transaction. Error: %s" % (payment.error.message)
+            context = {
+                'message': message,
+            }
+            return render(request, 'store/order_complete.html', context)
     else:
         return redirect('index')

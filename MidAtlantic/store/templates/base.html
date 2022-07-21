@@ -15,6 +15,14 @@
       rel="stylesheet"
       type="text/css">
       {% endcompress %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+          integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+      </script>
 {% endblock %}
 
  
@@ -74,6 +82,7 @@
             </div>
         </div>
     </div>
+
     <div class="row">
       {% block body %}
       <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">

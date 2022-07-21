@@ -12,6 +12,8 @@ django-bootstrap-themes = "*"
 six = "*"
 django-compressor = "*"
 pillow = "*"
+stripe = "*"
+paypalrestsdk = "*"
 
 [dev-packages]
 

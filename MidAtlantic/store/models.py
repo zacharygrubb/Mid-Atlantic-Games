@@ -35,7 +35,7 @@ class Cart(models.Model):
         game = Game.objects.get(pk=game_id)
         try:
             preexisting_order = GameOrder.objects.get(game=game, cart=self)
-            preexisting_order.quantity = 1
+            preexisting_order.quantity += 1
             preexisting_order.save()
         except GameOrder.DoesNotExist:
             new_order = GameOrder.objects.create(
