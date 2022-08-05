@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% load static %}
 
-{% if request.user.is_authenticated %}
-    <h4>
-        Welcome,
-        {% if request.user.first_name %}
-            {{ request.user.first_name }}
-        {% else %}
-            {{ request.user.username}}
-        {% endif %}!
-        <a href="{% url 'auth_logout' %}">Logout</a>
-    </h4>
-{% else %}
-    <h4>
-        Welcome, mysterious person!
-        Would you like to <a href="{% url 'auth_login' %}">Login</a>?
-    </h4>
-{% endif %}
-
-Welcome to Mid-Atlantic Games! There are {{ count }} games in stock.
-User location: {{ request.session.location }}
-
+{% block body %}
+    <div id="storefront_container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around">
+        {% for game in games %}
+        <div id="storefront_game_container" class="col-md-3">
+            <div class="storefront_game_display">
+                <a href="{% url 'game_details' game.id %}">
+                  <img class="storefront_game_cover" src="{{ MEDIA_URL }}{{ game.cover_image }}">
+                  <div class="storefront_game_title">{{ game.title }}</div>
+                  <div class="storefront_game_genre">{{ game.genre }}</div>
+                </a>
+            </div>
+        {% if request.user.is_authenticated %}
+            <div class="storefront_add_to_cart">
+                <a href="{% url 'add_to_cart' game.id %}">[Add To Cart]</a>
+            </div>
+        {% endif %}
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -12,12 +12,20 @@ def index(request):
     return render(request, 'template.html')
 
 
-def store(request):
+def home(request):
     games = Game.objects.all()
     context = {
         'games': games,
     }
     return render(request, "base.html", context)
+
+
+def store(request):
+    games = Game.objects.all()
+    context = {
+        'games': games,
+    }
+    return render(request, "store.html", context)
 
 
 def game_details(request, game_id):
