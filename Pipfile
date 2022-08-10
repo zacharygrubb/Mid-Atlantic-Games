@@ -14,6 +14,8 @@ django-compressor = "*"
 pillow = "*"
 stripe = "*"
 paypalrestsdk = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 

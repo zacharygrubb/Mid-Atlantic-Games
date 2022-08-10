@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+    <div id="storefront_container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around">
+        {% for game in games %}
+        <div id="storefront_game_container" class="col-md-3">
+            <div class="storefront_game_display">
+                <a href="{% url 'game_details' game.id %}">
+                  <img class="storefront_game_cover" src="{{ MEDIA_URL }}{{ game.cover_image }}">
+                  <div class="storefront_game_title">{{ game.title }}</div>
+                  <div class="storefront_game_genre">{{ game.genre }}</div>
+                </a>
+            </div>
+        {% if request.user.is_authenticated %}
+            <div class="storefront_add_to_cart">
+                <a href="{% url 'add_to_cart' game.id %}">[Add To Cart]</a>
+            </div>
+        {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

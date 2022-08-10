@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -46,8 +46,10 @@
       <recent name="C:\Users\zacha\OneDrive\Desktop\MAG\MidAtlantic\store\static\base\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\zacha\OneDrive\Desktop\MAG\MidAtlantic\media\games" />
+      <recent name="C:\Users\zacha\OneDrive\Desktop\MAG" />
+      <recent name="C:\Users\zacha\OneDrive\Desktop\MAG\MidAtlantic\store\templates\blog" />
       <recent name="C:\Users\zacha\OneDrive\Desktop\MAG\MidAtlantic\store\static\base\img" />
+      <recent name="C:\Users\zacha\OneDrive\Desktop\MAG\MidAtlantic\media\games" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
