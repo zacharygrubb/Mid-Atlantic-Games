@@ -16,6 +16,11 @@ stripe = "*"
 paypalrestsdk = "*"
 gunicorn = "*"
 whitenoise = "*"
+python-decouple = "*"
+django-extensions = "*"
+python-dotenv = "*"
+environ = "*"
+django-environ = "*"
 
 [dev-packages]
 
