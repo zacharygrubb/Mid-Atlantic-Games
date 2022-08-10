@@ -21,6 +21,7 @@ django-extensions = "*"
 python-dotenv = "*"
 environ = "*"
 django-environ = "*"
+django-heroku = "*"
 
 [dev-packages]
 

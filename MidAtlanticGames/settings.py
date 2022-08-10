@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import environ
+import django_heroku
 
 env = environ.Env()
 
@@ -30,7 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
@@ -163,3 +164,6 @@ EMAIL_HOST_PASSWORD = "fusyfbbrvkemfsih"
 EMAIL_PORT = 587  # you have to use SSL or TLS
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "games@midatlantic.com"
+
+# Activate Django-Heroku
+django_heroku.settings(locals())
