@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('publish_date', models.DateField(default=django.utils.timezone.now)),
                 ('text', models.TextField()),
-                ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.game')),
+                ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.game')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -40,8 +40,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.IntegerField()),
-                ('cart', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.cart')),
-                ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.game')),
+                ('cart', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.cart')),
+                ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.game')),
             ],
         ),
     ]
