@@ -22,20 +22,20 @@ class Game(models.Model):
     publish_date = models.DateField(default=timezone.now)
     price = models.DecimalField(decimal_places=2, max_digits=8)
     stock = models.IntegerField(default=0)
-    cover_image = models.ImageField(upload_to=cover_upload_path, default='games/empty_cover.jpg')
+    cover_image = models.FileField(upload_to=cover_upload_path, default='games/empty_cover.jpg')
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     publish_date = models.DateField(default=timezone.now)
-    cover_image = models.ImageField(upload_to=cover_upload_blog_path)
+    cover_image = models.FileField(upload_to=cover_upload_blog_path)
     content_one = models.TextField()
     content_two = models.TextField(blank=True)
     content_three = models.TextField(blank=True)
-    image_one = models.ImageField(upload_to=upload_blog_path, blank=True)
-    image_two = models.ImageField(upload_to=upload_blog_path, blank=True)
-    image_three = models.ImageField(upload_to=upload_blog_path, blank=True)
+    image_one = models.FileField(upload_to=upload_blog_path, blank=True)
+    image_two = models.FileField(upload_to=upload_blog_path, blank=True)
+    image_three = models.FileField(upload_to=upload_blog_path, blank=True)
 
 
 class Cart(models.Model):

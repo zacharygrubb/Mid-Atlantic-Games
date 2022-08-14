@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load custom_filters %}
+
 {% load bootstrap4 %}
 
 {% load compress %}
@@ -32,15 +34,15 @@
 
 
 {% block bootstrap4_content %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <div class="page-container">
     <div class="background-image">
         <div class="container-fluid">
             <nav id="navbar-full" class="navbar navbar-expand-lg shadow-5-strong">
                 <a class="navbar-brand" href="{% url 'home' %}">Mid-Atlantic Games</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-controls="navbarNav" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -88,11 +90,12 @@
             <div class="row">
             {% for game in games %}
                 {% if forloop.last %}
+                {% read game.cover_image as text %}
                 <div class="col-12 col-lg-6">
                     <h2 class="home_title">Latest Game!</h2>
                     <a href="{% url 'game_details' game.id %}" id="home_upper_display" class="row align-items-center justify-content-center home_displays">
                         <div class="col-10 home_img">
-                            <img src="{{ MEDIA_URL }}{{ game.cover_image }}">
+                            <img src="{{ text }}">
                         </div>
                         <div class="col-10 home_description">
                             <div>{{ game.description }}</div>
@@ -103,11 +106,12 @@
             {% endfor %}
             {% for post in posts %}
                 {% if forloop.last %}
+                {% read post.cover_image as description %}
                 <div class="col-12 col-lg-6">
                     <h2 class="home_title">Latest Post!</h2>
                     <a href="{% url 'post' post.id %}" class="row align-items-center justify-content-center home_displays">
                         <div class="col-10 home_img">
-                            <img src="{{ MEDIA_URL }}{{ post.cover_image }}">
+                            <img src="{{ description }}">
                         </div>
                         <div class="col-10 home_description">
                             <div>{{ post.description }}</div>

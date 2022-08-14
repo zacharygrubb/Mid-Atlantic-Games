@@ -31,9 +31,9 @@ def store(request):
 
 
 def about(request):
-    games = Game.objects.all()
+    posts = Post.objects.all()
     context = {
-        'games': games,
+        'posts': posts,
     }
     return render(request, "about.html", context)
 
@@ -50,7 +50,7 @@ def game_details(request, game_id):
     context = {
         'game': Game.objects.get(pk=game_id),
     }
-    return render(request, 'base/detail.html', context)
+    return render(request, 'store/detail.html', context)
 
 
 def post(request, post_id):
@@ -108,7 +108,7 @@ def cart(request):
             'total': total,
             'count': count,
         }
-        return render(request, 'base/cart.html', context)
+        return render(request, 'store/cart.html', context)
     else:
         return redirect('index')
 
