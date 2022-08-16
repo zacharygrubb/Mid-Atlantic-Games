@@ -129,8 +129,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-AWS_ACCESS_KEY_ID = 'AKIAUES7NPMOJMKLN4JJ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_STORAGE_BUCKET_NAME = 'zag-mag'
 AWS_S3_REGION_NAME = 'us-east-1'
@@ -164,7 +164,7 @@ LOGIN_URL = '/accounts/login/'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "midatlanticgames1971@gmail.com"
-EMAIL_HOST_PASSWORD = "fusyfbbrvkemfsih"
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587  # you have to use SSL or TLS
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "games@midatlantic.com"
