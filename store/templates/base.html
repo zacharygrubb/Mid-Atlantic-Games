@@ -90,12 +90,11 @@
             <div class="row">
             {% for game in games %}
                 {% if forloop.last %}
-                {% read game.cover_image as text %}
                 <div class="col-12 col-lg-6">
                     <h2 class="home_title">Latest Game!</h2>
                     <a href="{% url 'game_details' game.id %}" id="home_upper_display" class="row align-items-center justify-content-center home_displays">
                         <div class="col-10 home_img">
-                            <img src="{{ text }}">
+                            <img src="{{ game.cover_image }}">
                         </div>
                         <div class="col-10 home_description">
                             <div>{{ game.description }}</div>
@@ -106,12 +105,11 @@
             {% endfor %}
             {% for post in posts %}
                 {% if forloop.last %}
-                {% read post.cover_image as description %}
                 <div class="col-12 col-lg-6">
                     <h2 class="home_title">Latest Post!</h2>
                     <a href="{% url 'post' post.id %}" class="row align-items-center justify-content-center home_displays">
                         <div class="col-10 home_img">
-                            <img src="{{ description }}">
+                            <img src="{{ post.cover_image }}">
                         </div>
                         <div class="col-10 home_description">
                             <div>{{ post.description }}</div>

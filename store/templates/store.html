@@ -7,11 +7,10 @@
 {% block body %}
     <div id="storefront_container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around">
         {% for game in games %}
-        {% read game.cover_image as text %}
         <div id="storefront_game_container" class="col-md-3">
             <div class="storefront_game_display">
                 <a href="{% url 'game_details' game.id %}">
-                  <img class="storefront_game_cover" src="{{ text }}">
+                  <img class="storefront_game_cover" src="{{ game.cover_image }}">
                   <div class="storefront_game_title">{{ game.title }}</div>
                   <div class="storefront_game_genre">{{ game.genre }}</div>
                 </a>

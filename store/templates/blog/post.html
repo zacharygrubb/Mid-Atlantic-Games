@@ -9,16 +9,13 @@
 {% endblock %}
 
 {% block body %}
-{% read post.image_one as image1 %}
-{% read post.image_two as image2 %}
-{% read post.image_three as image3 %}
 <div class="blog">
   <div class="row align-items-center justify-content-around detail_game_display">
     <div class="col-lg-5 col-10 detail_game_description">
       <div>{{ post.content_one }}</div>
     </div>
     <div class="col-lg-6 col-12">
-      <img class="detail_game_img" src="{{ image1 }}">
+      <img class="detail_game_img" src="{{ post.image_one }}">
     </div>
   </div>
   <div class="row align-items-center justify-content-around detail_game_display">
@@ -26,7 +23,7 @@
       <div>{{ post.content_two }}</div>
     </div>
     <div class="col-lg-6 col-12">
-      <img class="detail_game_img" src="{{ image2 }}">
+      <img class="detail_game_img" src="{{ post.image_two }}">
     </div>
   </div>
   <div class="row align-items-center justify-content-around detail_game_display">
@@ -34,7 +31,7 @@
       <div>{{ post.content_three }}</div>
     </div>
     <div class="col-lg-6 col-12">
-      <img class="detail_game_img" src="{{ image3 }}">
+      <img class="detail_game_img" src="{{ post.image_three }}">
     </div>
   </div>
 </div>
