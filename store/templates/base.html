@@ -94,7 +94,7 @@
                     <h2 class="home_title">Latest Game!</h2>
                     <a href="{% url 'game_details' game.id %}" id="home_upper_display" class="row align-items-center justify-content-center home_displays">
                         <div class="col-10 home_img">
-                            <img src="{{ MEDIA }}{{ game.cover_image }}">
+                            <img src="s3://zag-mag/{{ game.cover_image }}">
                         </div>
                         <div class="col-10 home_description">
                             <div>{{ game.description }}</div>
@@ -109,7 +109,7 @@
                     <h2 class="home_title">Latest Post!</h2>
                     <a href="{% url 'post' post.id %}" class="row align-items-center justify-content-center home_displays">
                         <div class="col-10 home_img">
-                            <img src="{{ MEDIA }}{{ post.cover_image }}">
+                            <img src="s3://zag-mag/{{ post.cover_image }}">
                         </div>
                         <div class="col-10 home_description">
                             <div>{{ post.description }}</div>
