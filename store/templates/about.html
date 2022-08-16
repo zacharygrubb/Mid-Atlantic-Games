@@ -13,10 +13,9 @@
 {% block body %}
 {% for post in posts %}
 {% if forloop.last %}
-{% read post.cover_image as description %}
 <div class="row align-items-center justify-content-around about_display">
     <div class="col-lg-6 col-12">
-        <img class="about_img" src="{{ description }}">
+        <img class="about_img" src="{{ MEDIA }}{{ post.cover_image }}">
     </div>
     <div class="col-lg-4 col-10 about_description">
         <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
