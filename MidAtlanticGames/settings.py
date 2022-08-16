@@ -15,7 +15,12 @@ import os
 import environ
 import django_heroku
 
-env = environ.Env()
+env = environ.Env(
+    SECRET_KEY=str,
+    AWS_ACCESS_KEY_ID=str,
+    AWS_SECRET_ACCESS_KEY=str,
+    EMAIL_HOST_PASSWORD=str,
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
