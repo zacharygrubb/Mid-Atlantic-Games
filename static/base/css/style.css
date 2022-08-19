@@ -96,7 +96,6 @@ a:hover {
 }
 
 .background-image {
-    background: ;
     background-size: contain;
     height: 100%;
     width: 100%;
@@ -136,7 +135,7 @@ a:hover {
 }
 
 .home_displays {
-    color: ffffff;
+    color: white;
     width: 80%;
     margin: auto;
     border-radius: 10px;
@@ -153,7 +152,7 @@ a:hover {
 }
 
 .home_displays:hover {
-    color: ffffff;
+    color: white;
     background-color: #903C5C;
     box-shadow: none;
 }
@@ -217,17 +216,17 @@ a:hover {
 }
 
 .storefront_game_title {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 
 .storefront_game_genre {
-    font-size: 11px;
+    font-size: 16px;
     text-align: center;
 }
 .storefront_add_to_cart {
-    margin-top: 10px;
+    margin-top: 14px;
 }
 
 /* Game detail styles */
@@ -236,6 +235,7 @@ a:hover {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    padding-top: 80px;
 }
 
 .detail_game_genre {
@@ -357,6 +357,7 @@ a:hover {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    padding-top: 80px;
 }
 
 .about_display div {
