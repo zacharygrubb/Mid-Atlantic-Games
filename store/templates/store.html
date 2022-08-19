@@ -4,6 +4,16 @@
 
 {% load custom_filters %}
 
+{% block banner %}
+    <div class="banner">
+        <div class="banner-text">
+            <h3 class="bg-text-title">Welcome to our store!</h3>
+            <p>Currently, we do not have any games, but we'd love to make one some day.</p>
+            <p>For now, shop for these not so real ones!</p>
+        </div>
+    </div>
+{% endblock %}
+
 {% block body %}
     <div id="storefront_container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around">
         {% for game in games %}

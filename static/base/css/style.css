@@ -4,7 +4,7 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #525252;
-	background-color: #FFC482;
+	background-color: #ffffff;
 	overflow-x: hidden;
 }
 
@@ -124,7 +124,7 @@ a:hover {
 }
 
 #main_content {
-    min-height: 80vh;
+    min-height: 60vh;
     height: 100%;
 }
 
@@ -136,6 +136,7 @@ a:hover {
 }
 
 .home_displays {
+    color: ffffff;
     width: 80%;
     margin: auto;
     border-radius: 10px;
@@ -145,7 +146,16 @@ a:hover {
         rgba(109, 46, 70, 0.3) 15px 15px,
         rgba(109, 46, 70, 0.2) 20px 20px,
         rgba(109, 46, 70, 0.1) 25px 25px;
-    background-color: white;
+    background-color: #6D2E46;
+    transition:
+        background-color .3s ease-in-out,
+        box-shadow .3s ease-in-out;
+}
+
+.home_displays:hover {
+    color: ffffff;
+    background-color: #903C5C;
+    box-shadow: none;
 }
 
 #home_upper_display {
