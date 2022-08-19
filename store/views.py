@@ -149,8 +149,8 @@ def checkout_paypal(request, cart, orders):
             "payer": {
                 "payment_method": "paypal"},
             "redirect_urls": {
-                "return_url": "http://localhost:8000/store/process/paypal",
-                "cancel_url": "http://localhost:8000/store"},
+                "return_url": "http://zag-mag.herokuapp.com/store/process/paypal",
+                "cancel_url": "http://zag-mag.herokuapp.com/store"},
             "transactions": [{
                 "item_list": {
                     "items": items},
