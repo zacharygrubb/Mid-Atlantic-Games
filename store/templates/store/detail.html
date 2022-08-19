@@ -12,7 +12,7 @@
 {% block body %}
 <div class="row align-items-center justify-content-around detail_game_display">
   <div class="col-lg-6 col-12">
-    <img class="detail_game_img" src="s3://zag-mag/{{ game.cover_image }}">
+    <img class="detail_game_img" src="{% presign game.cover_image.file.name %}">
   </div>
   <div class="col-lg-4 col-10 detail_game_description">
     <div>{{ game.description }}</div>

@@ -22,4 +22,4 @@ urlpatterns = [
     path('accounts/', include('registration.backends.default.urls')),
     path('', include('store.urls'), name='home'),
     path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static('/media/', document_root=settings.MEDIA_ROOT)

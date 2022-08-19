@@ -15,7 +15,7 @@
       <div>{{ post.content_one }}</div>
     </div>
     <div class="col-lg-6 col-12">
-      <img class="detail_game_img" src="s3://zag-mag/{{ post.image_one }}">
+      <img class="detail_game_img" src="{% presign post.image_one.file.name %}">
     </div>
   </div>
   <div class="row align-items-center justify-content-around detail_game_display">
@@ -23,7 +23,7 @@
       <div>{{ post.content_two }}</div>
     </div>
     <div class="col-lg-6 col-12">
-      <img class="detail_game_img" src="s3://zag-mag/{{ post.image_two }}">
+      <img class="detail_game_img" src="{% presign post.image_two.file.name %}">
     </div>
   </div>
   <div class="row align-items-center justify-content-around detail_game_display">
@@ -31,7 +31,7 @@
       <div>{{ post.content_three }}</div>
     </div>
     <div class="col-lg-6 col-12">
-      <img class="detail_game_img" src="s3://zag-mag/{{ post.image_three }}">
+      <img class="detail_game_img" src="{% presign post.image_three.file.name %}">
     </div>
   </div>
 </div>

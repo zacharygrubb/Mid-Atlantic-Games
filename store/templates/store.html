@@ -10,7 +10,7 @@
         <div id="storefront_game_container" class="col-md-3">
             <div class="storefront_game_display">
                 <a href="{% url 'game_details' game.id %}">
-                  <img class="storefront_game_cover" src="s3://zag-mag/{{ game.cover_image }}">
+                  <img class="storefront_game_cover" src="{% presign game.cover_image.file.name %}">
                   <div class="storefront_game_title">{{ game.title }}</div>
                   <div class="storefront_game_genre">{{ game.genre }}</div>
                 </a>
