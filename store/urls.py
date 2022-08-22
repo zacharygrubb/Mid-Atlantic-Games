@@ -13,7 +13,7 @@ urlpatterns = [
     path('post/<int:post_id>', views.post, name='post'),
     path('cart/', views.cart, name='cart'),
     path('checkout/<processor>', views.checkout, name='checkout'),
-    path('process/<processor>', views.process_order, name='process_order'),
+    path('store/process/<processor>', views.process_order, name='process_order'),
     path('order_error', views.order_error, name='order_error'),
     path('complete_order/<processor>', views.complete_order, name='complete_order'),
 ]
