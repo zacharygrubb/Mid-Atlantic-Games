@@ -173,7 +173,7 @@ def checkout_paypal(request, cart, orders):
 
 def order_error(request):
     if request.user.is_authenticated:
-        return render(request, 'base/order_error.html')
+        return render(request, 'store/order_error.html')
     else:
         return redirect('index')
 
@@ -191,7 +191,7 @@ def process_order(request, processor):
                 'cart': orders,
                 'total': total,
             }
-            return render(request, 'base/process_order.html', context)
+            return render(request, 'store/process_order.html', context)
         elif processor == "stripe":
             return JsonResponse({'redirect_url': reverse('complete_order', args=['stripe'])})
         else:
@@ -214,6 +214,6 @@ def complete_order(request, processor):
             context = {
                 'message': message,
             }
-            return render(request, 'base/order_complete.html', context)
+            return render(request, 'store/order_complete.html', context)
     else:
         return redirect('index')
