@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block banner %}
+<div class="detail_game_title">{{ post.title }}</div>
+{% endblock %}
+
+{% block body %}
+<div class="blog">
+  <div class="row align-items-center justify-content-around detail_game_display">
+    <div class="col-lg-5 col-10 detail_game_description">
+      <div>{{ post.content_one }}</div>
+    </div>
+    <div class="col-lg-6 col-12">
+      <img class="detail_game_img" src="{% presign post.image_one.file.name %}">
+    </div>
+  </div>
+  <div class="row align-items-center justify-content-around detail_game_display">
+    <div class="col-lg-5 col-10 detail_game_description">
+      <div>{{ post.content_two }}</div>
+    </div>
+    <div class="col-lg-6 col-12">
+      <img class="detail_game_img" src="{% presign post.image_two.file.name %}">
+    </div>
+  </div>
+  <div class="row align-items-center justify-content-around detail_game_display">
+    <div class="col-lg-5 col-10 detail_game_description">
+      <div>{{ post.content_three }}</div>
+    </div>
+    <div class="col-lg-6 col-12">
+      <img class="detail_game_img" src="{% presign post.image_three.file.name %}">
+    </div>
+  </div>
+</div>
+{% endblock %}

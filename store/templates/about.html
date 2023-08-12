@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block banner %}
+<div class="about_title">
+    About Us
+</div>
+{% endblock %}
+
+{% block body %}
+{% for post in posts %}
+{% if forloop.last %}
+<div class="row align-items-center justify-content-around about_display">
+    <div class="col-lg-6 col-12">
+        <img class="about_img" src="{% presign post.cover_image.file.name %}">
+    </div>
+    <div class="col-lg-4 col-10 about_description">
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean porttitor sapien eu ante porta porta.
+        Ut blandit fringilla auctor.
+        Vivamus efficitur ultrices nulla.
+        Proin finibus lorem non lacinia aliquam.
+        Nullam imperdiet purus erat.
+        Aliquam accumsan at magna ac malesuada.
+        Aliquam egestas tincidunt est, in convallis ipsum tincidunt in.
+        Etiam nec consectetur ante.
+        Nullam lobortis pretium nibh tincidunt consectetur.
+        Donec ullamcorper commodo est, non imperdiet justo molestie ut.
+        Donec quis elit nec libero finibus dapibus a eget leo.
+        Nullam commodo semper mollis.
+        Fusce et lobortis nisi, aliquam posuere magna.</div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

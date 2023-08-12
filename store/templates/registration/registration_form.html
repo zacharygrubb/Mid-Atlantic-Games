@@ -1,0 +1,25 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Register for an account" %}{% endblock %}
+
+{% block banner %}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+      <div id="create-account">Create a Mid-Atlantic Games account</div>
+    </div>
+  <div class="panel-body">
+    <form class="form-horizontal" method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <div class="form-group">
+        <div>
+          <input type="submit" value="{% trans 'Submit' %}" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

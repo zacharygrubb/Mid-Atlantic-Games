@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block banner %}
+    <div class="banner">
+        <div class="banner-text">
+            <h3 class="bg-text-title">Welcome to our store!</h3>
+            <p>Currently, we do not have any games, but we'd love to make one some day.</p>
+            <p>For now, shop for these not so real ones!</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div id="storefront_container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around">
+        {% for game in games %}
+        <div id="storefront_game_container" class="col-md-3">
+            <div class="storefront_game_display">
+                <a href="{% url 'game_details' game.id %}">
+                  <img class="storefront_game_cover" src="{% presign game.cover_image.file.name %}">
+                  <div class="storefront_game_title">{{ game.title }}</div>
+                  <div class="storefront_game_genre">{{ game.genre }}</div>
+                </a>
+            </div>
+        {% if request.user.is_authenticated %}
+            <div class="storefront_add_to_cart">
+                <a href="{% url 'add_to_cart' game.id %}">[Add To Cart]</a>
+            </div>
+        {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

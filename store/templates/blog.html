@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block banner %}
+  <div class="about_title">
+    Blog
+  </div>
+{% endblock %}
+
+{% block body %}
+{% for post in posts %}
+<a href="{% url 'post' post.id %}">
+  <div class="row align-items-center justify-content-around detail_post_display">
+    <div class="col-lg-6 col-12">
+      <img class="detail_post_img" src="{% presign post.cover_image.file.name %}">
+    </div>
+    <div class="col-lg-4 col-10 detail_post_display_text">
+      <div class="detail_post_title">{{ post.title }}</div>
+      <div class="detail_post_description">{{ post.description }}</div>
+    </div>
+  </div>
+</a>
+{% endfor %}
+{% endblock %}

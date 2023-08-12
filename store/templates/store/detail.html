@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block banner %}
+<div class="detail_game_title">{{ game.title }}</div>
+<div class="detail_game_genre">{{ game.genre }}</div>
+{% endblock %}
+
+{% block body %}
+<div class="row align-items-center justify-content-around detail_game_display">
+  <div class="col-lg-6 col-12">
+    <img class="detail_game_img" src="{% presign game.cover_image.file.name %}">
+  </div>
+  <div class="col-lg-4 col-10 detail_game_description">
+    <div>{{ game.description }}</div>
+  </div>
+</div>
+{% endblock %}
