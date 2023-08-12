@@ -5,7 +5,6 @@ This is a Django project website for selling tabletop games. I've deployed it wi
 ## Usage
 
 Register for an account and validate it through email, this will allow access to adding games to the cart and going through the checkout process.
-https://mid-atlantic-games.herokuapp.com/
 
 ## Wireframes
 
