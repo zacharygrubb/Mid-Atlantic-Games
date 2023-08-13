@@ -192,8 +192,6 @@ def process_order(request, processor):
                 'total': total,
             }
             return render(request, 'store/process_order.html', context)
-        elif processor == "stripe":
-            return JsonResponse({'redirect_url': reverse('complete_order', args=['stripe'])})
         else:
             return redirect('index')
 

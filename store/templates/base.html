@@ -80,6 +80,7 @@
                     <h3 class="bg-text-title">Welcome to MidAtlanticGames!</h3>
                     <p>Built using Django, Bootstrap, AWS S3, Paypal SDK, and plain CSS3.</p>
                     <p>Create an account and head to store to add items to your cart!</p>
+                    <p>Check the blog section for more information.</p>
                 </div>
             </div>
             {% endblock %}
@@ -97,7 +98,7 @@
                             <img src="{% presign game.cover_image.file.name %}">
                         </div>
                         <div class="col-10 home_description">
-                            <div>{{ game.description }}</div>
+                            <div>{{ game.title }}</div>
                         </div>
                     </a>
                 </div>
@@ -112,7 +113,7 @@
                             <img src="{% presign post.cover_image.file.name %}">
                         </div>
                         <div class="col-10 home_description">
-                            <div>{{ post.description }}</div>
+                            <div>{{ post.title }}</div>
                         </div>
                     </a>
                 </div>

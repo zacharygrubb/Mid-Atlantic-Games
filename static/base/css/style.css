@@ -184,6 +184,8 @@ a:hover {
     box-shadow:
         rgba(0, 0, 0, 0.16) 0px 1px 4px,
         rgb(51, 51, 51) 0px 0px 0px 3px;
+    font-size: 28px;
+    line-height: 60px;
 }
 
 @media (max-width: 992px) {
@@ -374,8 +376,9 @@ a:hover {
 .about_description {
     background-color: rgba(230,230,230,.2);
     border-radius: 10px;
-    margin-right: 60px;
+    margin-right: 120px;
     padding: 30px 60px;
+    text-align: center;
 }
 
 /* blog */
@@ -399,6 +402,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-right: 120px;
 }
 
 .detail_post_img {

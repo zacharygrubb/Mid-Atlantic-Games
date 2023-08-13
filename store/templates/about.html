@@ -6,7 +6,7 @@
 
 {% block banner %}
 <div class="about_title">
-    About Us
+    About Me
 </div>
 {% endblock %}
 
@@ -15,23 +15,14 @@
 {% if forloop.last %}
 <div class="row align-items-center justify-content-around about_display">
     <div class="col-lg-6 col-12">
-        <img class="about_img" src="{% presign post.cover_image.file.name %}">
+        <img class="about_img" src="../../static/base/assets/aboutmephoto.jpg">
     </div>
     <div class="col-lg-4 col-10 about_description">
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aenean porttitor sapien eu ante porta porta.
-        Ut blandit fringilla auctor.
-        Vivamus efficitur ultrices nulla.
-        Proin finibus lorem non lacinia aliquam.
-        Nullam imperdiet purus erat.
-        Aliquam accumsan at magna ac malesuada.
-        Aliquam egestas tincidunt est, in convallis ipsum tincidunt in.
-        Etiam nec consectetur ante.
-        Nullam lobortis pretium nibh tincidunt consectetur.
-        Donec ullamcorper commodo est, non imperdiet justo molestie ut.
-        Donec quis elit nec libero finibus dapibus a eget leo.
-        Nullam commodo semper mollis.
-        Fusce et lobortis nisi, aliquam posuere magna.</div>
+        <div>My name is Zachary Grubb, and I'm a student and entry
+        level web developer living in Harrisonburg, VA. I'm currently
+        attending Blue Ridge Community College, and I'm on track to
+        transfer to GMU in order to finish a bachelors in IT.
+        </div>
     </div>
 </div>
 {% endif %}
