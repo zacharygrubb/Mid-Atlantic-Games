@@ -24,6 +24,7 @@ django-environ = "*"
 django-heroku = "*"
 boto3 = "*"
 django-storages = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
