@@ -144,11 +144,17 @@ AWS_S3_REGION_NAME = 'us-east-1'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_HOST = env('DJANGO_STATIC_HOST', default='')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-COMPRESS_ENABLED = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
+COMPRESS_OFFLINE = env.bool('COMPRESS_OFFLINE', default=True)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
