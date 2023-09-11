@@ -1,6 +1,6 @@
 # Welcome to MidAtlantic Games! 
 
-This is a Django project website for selling tabletop games. I've deployed it with Heroku and used an AWS S3 bucket to store dynamically uploaded files. The registration and login is handled by Django itself and the payment system is handled by Paypal.
+This is a Django project website for selling tabletop games. An AWS S3 bucket is used to store and serve dynamically uploaded files. The registration and login is handled by Django itself and the payment system is handled by Paypal.
 
 ## Usage
 
